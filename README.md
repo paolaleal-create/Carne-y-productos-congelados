@@ -1,0 +1,147 @@
+# CL-Circular-Analytics
+
+Plataforma de analítica comercial y logística para CL Circular, enfocada en el corredor México-Estados Unidos del mercado cárnico.
+
+## Estado actual de la app
+
+La aplicación productiva corre con:
+
+- `backend/main.py` (FastAPI)
+- `frontend/index.html` + `frontend/app.js` + `frontend/styles.css` (UI cliente)
+
+La versión Streamlit (`app/`) se conserva como módulo histórico, pero el flujo principal actual es FastAPI + frontend HTML.
+
+## Funcionalidades implementadas
+
+Tabs activas en el frontend:
+
+1. `Mercado`
+2. `Pronósticos`
+3. `Estrategia`
+4. `Clusters`
+5. `Prioridad Comercial`
+6. `Mapa de Flujos`
+
+### Mercado
+- KPIs globales (volumen, valor, contenedores, riesgo medio, empresas analizadas).
+- Tendencia de exportación por producto.
+- Top estados exportadores.
+- Participación de empresas.
+- Dispersión toneladas vs índice de riesgo.
+
+### Pronósticos
+- Forecast ARIMAX trimestral (bovino y porcino).
+- Métricas del modelo y tablas de detalle.
+
+### Estrategia
+- Roadmap de expansión por fases (corto, mediano y largo plazo).
+
+### Clusters
+- Clustering con diagnósticos (codo + silhouette).
+- PCA 2D/3D y tabla de perfil.
+- Nombres de cluster de negocio:
+  - `0`: Microexportadores
+  - `1`: Mid-Tier Afines
+  - `2`: Top-Tier
+  - `3`: LowMid-Tier
+
+### Prioridad Comercial
+- Tabla de priorización de cierre.
+- Fuente principal: `data/df_final.csv`.
+- Top 10 por defecto + botón `Ver Más`.
+- Gráficas:
+  - Feature importance.
+  - Probabilidad media de cierre por cluster.
+- Métricas del modelo:
+  - Accuracy, Precision, Recall, F1, ROC AUC.
+  - Desglose por clase (`0` y `1`).
+
+### Mapa de Flujos
+- Mapa Leaflet de rutas con nodos de destino.
+- Filtro de ruta integrado.
+- Gráficas complementarias:
+  - Dispersión volumen vs riesgo.
+  - Top 5 rutas con mayor índice de riesgo.
+
+## Datos principales
+
+Ubicación: carpeta `data/`
+
+Archivos clave:
+- `df_final.csv` (prioridad comercial)
+- `empresas_con_clusters.csv`
+- `dataset_empresas_actualizado.csv`
+- `rutas (2).csv`
+- `destinos_rutas_top20.csv`
+- `risk_features.csv`
+- `EXPORTS MEXICO ANUAL LIMPIO.xlsx`
+- `EXPORTS-MEXICO-TRIMESTRALES-2013-2024.csv`
+- `tipo_cambio_promedio_trimestral.csv`
+
+## Metodología resumida
+
+- **Estimación de volumen y envíos**: a partir de valor exportado y precio USD/ton por código arancelario.
+- **Índice de riesgo por ruta**: combinación ponderada de severidad, pérdidas, congestión fronteriza y variabilidad climática (normalización 0-100).
+- **Prioridad comercial**: probabilidad de cierre por empresa usando el dataset final y visualización de performance de clasificación.
+
+## Estructura (resumen)
+
+```text
+CL-Circular-Analytics
++-- analytics/
++-- app/
++-- backend/
+¦   +-- main.py
++-- config/
++-- data/
++-- frontend/
+¦   +-- index.html
+¦   +-- app.js
+¦   +-- styles.css
+¦   +-- Assets/
++-- outputs/
++-- requirements.txt
++-- README.md
+```
+
+## Requisitos
+
+- Python 3.10+
+- pip
+
+## Instalación
+
+```bash
+cd CL-Circular-Analytics
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Ejecución local (Windows / PowerShell)
+
+Ejemplo con entorno Conda:
+
+```powershell
+& "C:\Users\sag33\Anaconda3\envs\clcircular\python.exe" -m uvicorn backend.main:app --app-dir "C:\Users\sag33\Desktop\APP CL CIRCULAR\CL-Circular-Analytics" --host 127.0.0.1 --port 8070 --reload
+```
+
+Abrir:
+
+```text
+http://127.0.0.1:8070
+```
+
+## Endpoints API principales
+
+- `GET /api/filters`
+- `GET /api/kpis`
+- `GET /api/map-flows`
+- `GET /api/forecast-arimax-quarterly`
+- `GET /api/clustering`
+- `GET /api/close-probability-model`
+
+## Notas de repositorio
+
+- Se usa `.gitignore` para excluir `.venv`, `__pycache__`, caches y outputs.
+- `frontend/Assets/hero.mp4` es grande (GitHub muestra advertencia >50MB). Se recomienda Git LFS para producción.
