@@ -1,0 +1,374 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CL Circular Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="brand">
+        <img class="brand__logo" src="/assets/Assets/Logo-Cl-Circular.png" alt="Logo" />
+      </div>
+      <a class="topbar__cta" href="https://www.clcircular.com/es/" target="_blank" rel="noopener noreferrer">Sitio Oficial</a>
+    </nav>
+
+    <header class="hero">
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="/assets/Assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="eyebrow">PLATAFORMA ESTRATÉGICA</p>
+        <h1>Del dato a la acción para el mercado cárnico</h1>
+        <p>
+          Visibilidad integral del corredor México-Estados Unidos: mayor control y mejor
+          priorización comercial.
+        </p>
+        <div class="hero__actions">
+          <button id="discoverBtn" type="button">Descubrir Oportunidades</button>
+          <button id="goMapBtn" class="btn-ghost" type="button">Ver Mapa de Riesgo</button>
+        </div>
+      </div>
+      <aside class="hero__card">
+        <h3>Certified Cold-Chain Insight</h3>
+        <p>Ranking de cuentas, rutas de alto riesgo y forecast operativo en una sola vista ejecutiva.</p>
+        <div class="hero__pill">Modelo B2B para exportadores</div>
+      </aside>
+    </header>
+
+    <section class="highlights">
+      <article>
+        <h4>Detecta oportunidades</h4>
+        <p>Analiza comportamiento del mercado y segmentos de mayor viabilidad comercial.</p>
+      </article>
+      <article>
+        <h4>Facilita la toma decisiones</h4>
+        <p>Proporciona insights accionables para la ejeución estratégica empresarial.</p>
+      </article>
+      <article>
+        <h4>Identifica riesgos</h4>
+        <p>Mapea rutas con un mayor índice de riesgo y lo contrasta con el volumen transportado.</p>
+      </article>
+      <article>
+        <h4>Incorpora capacidad de interacción</h4>
+        <p>Para escalar la estrategia actual y personalizar visualizaciones de manera eficiente.</p>
+      </article>
+    </section>
+
+    <main class="layout">
+      <section class="panel filters">
+        <h2>Filtros Globales</h2>
+        <div class="filters__grid">
+          <label>
+            Segmento
+            <select id="segmentSelect"></select>
+          </label>
+          <label>
+            Ruta
+            <select id="routeSelect"></select>
+          </label>
+          <label>
+            Año de Análisis
+            <select id="yearSelect"></select>
+          </label>
+          <button id="refreshBtn">Actualizar</button>
+        </div>
+      </section>
+
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <section class="panel">
+        <div class="tabs">
+          <button class="tab tab--active" data-tab="market">Mercado</button>
+          <button class="tab" data-tab="forecast">Pronósticos</button>
+          <button class="tab" data-tab="strategy">Estrategia</button>
+          <button class="tab" data-tab="clusters">Clusters</button>
+          <button class="tab" data-tab="priority">Prioridad Comercial</button>
+          <button class="tab" data-tab="map">Mapa de Flujos</button>
+        </div>
+
+        <div class="tab-content" id="tab-strategy">
+          <section class="strategy-hero">
+            <p class="strategy-kicker">4. Estrategia de Expansión</p>
+            <h3>Subsidiaria Comercial en México</h3>
+            <p>
+              Modelo de <strong>Data-Driven Growth</strong> para pasar de prospección genérica a ejecución de alta
+              precisión, maximizando ROI y optimizando la cadena de suministro.
+            </p>
+          </section>
+
+          <div class="strategy-grid">
+            <article class="strategy-phase">
+              <header>
+                <h4>Corto Plazo</h4>
+                <span>0-12 meses</span>
+              </header>
+              <p class="strategy-goal">Cimentación y Segmentación Inteligente</p>
+              <ul>
+                <li>
+                  <strong>Forecasting ARIMAX:</strong> proyectar demanda real para dimensionar sensores y justificar
+                  financiamiento inicial.
+                </li>
+                <li>
+                  <strong>Clustering Estratégico (4 clusters):</strong> priorizar cuentas de alto potencial y adaptar
+                  pain points por perfil.
+                </li>
+                <li>
+                  <strong>Redefinición de Valor:</strong> de "monitoreo" a "ahorros operativos" con foco financiero.
+                </li>
+                <li>
+                  <strong>Starter Packs por Cluster:</strong> paquetes de entrada específicos para reducir fricción de
+                  adopción.
+                </li>
+              </ul>
+            </article>
+
+            <article class="strategy-phase">
+              <header>
+                <h4>Mediano Plazo</h4>
+                <span>12-36 meses</span>
+              </header>
+              <p class="strategy-goal">Escalamiento y Lealtad</p>
+              <ul>
+                <li>
+                  <strong>Programa de Referidos "Circular Circle":</strong> descuento de 5% trimestral por cada cliente
+                  referido cerrado (cuentas con más de 1 año).
+                </li>
+                <li>
+                  <strong>Optimización de Arrendamiento:</strong> contratos de 1-2 años con costo preferencial para
+                  estabilizar flujo de caja.
+                </li>
+                <li>
+                  <strong>Marketing Sectorial:</strong> campañas de awareness en corredores logísticos cárnicos y de
+                  congelados.
+                </li>
+              </ul>
+            </article>
+
+            <article class="strategy-phase">
+              <header>
+                <h4>Largo Plazo</h4>
+                <span>36+ meses</span>
+              </header>
+              <p class="strategy-goal">Autonomía Logística</p>
+              <ul>
+                <li>
+                  <strong>Hub de Reacondicionamiento en México:</strong> centro propio de carga y mantenimiento de
+                  sensores en puntos estratégicos.
+                </li>
+                <li>
+                  <strong>Impacto:</strong> menor dependencia del hub en España, menor tiempo de respuesta y plataforma
+                  de expansión hacia EE.UU.
+                </li>
+              </ul>
+            </article>
+          </div>
+
+        </div>
+
+        <div class="tab-content" id="tab-priority">
+          <section class="strategy-hero">
+            <p class="strategy-kicker">Prioridad Comercial</p>
+            <h3>Empresas, Features y Probabilidad de Cierre</h3>
+            <p>
+              Ranking de priorización comercial generado con el modelo de cierre y datos de
+              <strong>empresas_con_clusters</strong>.
+            </p>
+          </section>
+
+          <section class="strategy-model">
+            <div class="strategy-model__head">
+              <h4>Modelo de Probabilidad de Cierre (XGBoost)</h4>
+              <div class="strategy-model__controls">
+                <label>
+                  Fuente
+                  <select id="closeProbSource">
+                    <option value="real" selected>Solo empresas reales</option>
+                    <option value="all">Reales + simuladas</option>
+                  </select>
+                </label>
+                <button id="closeProbBtn" type="button">Actualizar Tabla</button>
+                <button id="closeProbMoreBtn" type="button">Ver Más</button>
+              </div>
+            </div>
+            <div class="priority-charts">
+              <div class="chart" id="closeProbFeatureImportanceChart"></div>
+              <div class="chart" id="closeProbClusterProbChart"></div>
+            </div>
+            <div class="table-wrap">
+              <table id="closeProbTable"></table>
+            </div>
+            <div class="metrics closeprob-metrics" id="closeProbMetrics">
+              <div id="closeProbAccuracyCard" class="metric-box"></div>
+              <div id="closeProbPrecisionCard" class="metric-box"></div>
+              <div id="closeProbRecallCard" class="metric-box"></div>
+              <div id="closeProbF1Card" class="metric-box"></div>
+              <div id="closeProbRocAucCard" class="metric-box"></div>
+            </div>
+            <div class="table-wrap closeprob-class-wrap">
+              <table id="closeProbClassMetricsTable"></table>
+            </div>
+          </section>
+        </div>
+
+        <div class="tab-content tab-content--active" id="tab-market">
+          <div class="market-top-row">
+            <div class="chart" id="trendChart"></div>
+            <div class="chart" id="topStatesChart"></div>
+          </div>
+          <button id="toggleProductDetailBtn" class="detail-toggle-btn" type="button">Ver Detalle</button>
+          <div id="marketDetailWrap" class="table-wrap market-products-table is-hidden">
+            <table id="productLegendTable"></table>
+          </div>
+          <div class="market-bottom-row">
+            <div class="chart" id="routeRiskChart"></div>
+            <div class="chart" id="riskTonsScatterChart"></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-ranking">
+          <div class="weights">
+            <label>W1 Volumen <input id="w1" type="range" min="0" max="1" step="0.01" value="0.22" /></label>
+            <label>W2 Valor <input id="w2" type="range" min="0" max="1" step="0.01" value="0.26" /></label>
+            <label>W3 Distancia <input id="w3" type="range" min="0" max="1" step="0.01" value="0.12" /></label>
+            <label>W4 Sensibilidad <input id="w4" type="range" min="0" max="1" step="0.01" value="0.14" /></label>
+            <label>W5 Congestión <input id="w5" type="range" min="0" max="1" step="0.01" value="0.14" /></label>
+            <label>W6 Incidencias <input id="w6" type="range" min="0" max="1" step="0.01" value="0.12" /></label>
+            <button id="rankingBtn">Recalcular</button>
+          </div>
+          <div class="chart" id="rankingScatter"></div>
+          <div class="table-wrap">
+            <table id="rankingTable"></table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-map">
+          <div id="flowMap"></div>
+          <div class="map-bottom-row">
+            <div class="chart" id="mapRiskTonsScatterChart"></div>
+            <div class="chart" id="mapTopRiskRoutesChart"></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-forecast">
+          <div class="weights">
+            <label>
+              Horizonte (trimestres)
+              <select id="forecastHorizonQ">
+                <option value="4">4 trimestres</option>
+                <option value="8" selected>8 trimestres</option>
+                <option value="12">12 trimestres</option>
+              </select>
+            </label>
+            <button id="forecastBtn">Pronosticar ARIMAX</button>
+          </div>
+          <div class="metrics">
+            <div id="mapeCard" class="metric-box"></div>
+            <div id="rmseCard" class="metric-box"></div>
+            <div id="maeCard" class="metric-box"></div>
+          </div>
+          <div class="table-wrap cluster-profile-wrap">
+            <table id="forecastModelTable"></table>
+          </div>
+          <div class="chart" id="forecastChart"></div>
+          <button id="toggleForecastDetailBtn" class="detail-toggle-btn" type="button">Ver Detalle</button>
+          <div id="forecastDetailWrap" class="is-hidden">
+            <div class="table-wrap cluster-profile-wrap">
+              <table id="forecastBovinoMetaTable"></table>
+            </div>
+            <div class="table-wrap cluster-profile-wrap">
+              <table id="forecastBovinoCoefTable"></table>
+            </div>
+            <div class="table-wrap cluster-profile-wrap">
+              <table id="forecastPorcinoMetaTable"></table>
+            </div>
+            <div class="table-wrap cluster-profile-wrap">
+              <table id="forecastPorcinoCoefTable"></table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-scenarios">
+          <div class="weights">
+            <label>Adopción <input id="adoptionRate" type="range" min="0" max="1" step="0.01" value="0.30" /></label>
+            <label>Efectividad <input id="adoptionEff" type="range" min="0" max="1" step="0.01" value="0.35" /></label>
+            <label>Riesgo x <input id="riskMul" type="range" min="1" max="2" step="0.01" value="1.15" /></label>
+            <label>Expansión <input id="expansion" type="range" min="0" max="1" step="0.01" value="0.20" /></label>
+            <button id="scenarioBtn">Simular</button>
+          </div>
+          <div class="chart" id="scenarioChart"></div>
+        </div>
+
+        <div class="tab-content" id="tab-clusters">
+          <div class="weights">
+            <label class="range-with-value">
+              <span>K Clusters</span>
+              <span id="clusterKValue" class="range-value">4</span>
+              <input id="clusterK" type="range" min="2" max="8" step="1" value="4" />
+            </label>
+            <button id="clusterBtn">Actualizar Clusters</button>
+          </div>
+          <div class="table-wrap cluster-profile-wrap">
+            <table id="clusterProfileTable"></table>
+          </div>
+          <div class="chart" id="elbowChart"></div>
+          <div class="chart" id="pcaChart"></div>
+          <div class="chart" id="pca3dChart"></div>
+          <button id="toggleLoadingsBtn" class="detail-toggle-btn" type="button">Ver Detalle</button>
+          <div id="clusterLoadingsWrap" class="table-wrap cluster-loadings-wrap is-hidden">
+            <table id="clusterLoadingsTable"></table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-leads">
+          <div class="weights">
+            <label>Top Leads <input id="topLeads" type="range" min="10" max="80" step="5" value="30" /></label>
+            <button id="leadsBtn">Generar Leads</button>
+            <button id="downloadLeads">Descargar CSV</button>
+          </div>
+          <div class="table-wrap">
+            <table id="leadsTable"></table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/assets/app.js"></script>
+
+    <footer class="methodology-note">
+      <h4>Metodología de Estimaciones</h4>
+      <p>
+        Con la data real disponible se estima el volumen y los envíos a partir de <strong>Valor exportado</strong> por
+        código arancelario. Primero se calcula <strong>volumen estimado (tons) = valor exportado / precio promedio USD por
+        tonelada</strong>. Después se estima <strong>envíos = volumen estimado / capacidad promedio por envío</strong>.
+        Los supuestos de precio y capacidad se aplican por código (0201, 0202, 0203) y un valor por defecto para otros
+        códigos.
+      </p>
+      <p>
+        El <strong>índice de riesgo</strong> por ruta se construye con un promedio ponderado de variables operativas:
+        severidad e impacto económico de incidencias, congestión fronteriza y variabilidad climática. Cada variable se
+        normaliza en escala 0-100 y luego se agrega para obtener un score final comparable entre rutas.
+      </p>
+    </footer>
+  </body>
+</html>

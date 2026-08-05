@@ -1,0 +1,38 @@
+dest_id,company_id,company_name,dest_state,dest_city,dest_hub,main_border_crossing,route_id,pct_export_volume,evidence_level
+1,1,SuKarne,Texas,San Antonio,HEB DC,Nuevo Laredo,R01,50,documented
+2,1,SuKarne,California,City of Industry,SuKarne US Office,Otay Mesa,R03,27,documented
+3,1,SuKarne,Illinois,Chicago,Chicago Hub,Nuevo Laredo,R06,5,inferred
+4,1,SuKarne,California,Los Angeles,LA Hub,Calexico,R04,5,documented
+5,2,Kekén,Texas,San Antonio,TX Hub,Nuevo Laredo,R07,50,inferred
+6,2,Kekén,Texas,Houston,Houston Hub,Nuevo Laredo,R09,30,inferred
+7,2,Kekén,California,Los Angeles,LA Hub,Nuevo Laredo,R10,20,inferred
+8,3,Grupo Gusi,Texas,San Antonio,TX Hub,Nuevo Laredo,R11,70,inferred
+9,3,Grupo Gusi,California,Los Angeles,LA Hub,Nuevo Laredo,R12,18,inferred
+10,4,Bachoco/Norson,Arizona,Phoenix,Phoenix Hub,Nogales,R14,49,inferred
+11,4,Bachoco/Norson,California,Los Angeles,LA Hub,Nogales,R15,29,inferred
+12,4,Bachoco/Norson,Texas,Dallas,Dallas Hub,Nogales,R16,22,inferred
+13,5,Carnes ViBa,Texas,San Antonio,TX Hub,Nuevo Laredo,R01,70,inferred
+14,5,Carnes ViBa,Texas,Houston,Houston Hub,Nuevo Laredo,R17,30,inferred
+15,6,Alimentos Kowi,Arizona,Tucson,Tucson Hub,Nogales,R18,60,inferred
+16,6,Alimentos Kowi,California,Los Angeles,LA Hub,Nogales,R19,40,inferred
+17,7,Grupo Bafar,Texas,El Paso,El Paso Hub,Ciudad Juárez,R20,70,documented
+18,7,Grupo Bafar,California,Los Angeles,LA Hub,Ciudad Juárez,R21,30,inferred
+19,8,Emp. Ganadera Chihuahua,Texas,El Paso,El Paso Hub,Ciudad Juárez,R20,70,inferred
+20,8,Emp. Ganadera Chihuahua,New Mexico,Albuquerque,NM Hub,Columbus,R22,30,inferred
+21,9,SASA,Arizona,Phoenix,Phoenix Hub,Nogales,R14,65,inferred
+22,9,SASA,California,Los Angeles,LA Hub,Nogales,R15,35,inferred
+23,10,GCM/WH Group,Texas,Houston,Houston Hub,Nuevo Laredo,R23,70,inferred
+24,10,GCM/WH Group,California,Los Angeles,LA Hub,Nuevo Laredo,R24,30,inferred
+25,11,Cargill MX,Arizona,Phoenix,Phoenix Hub,Nogales,R25,57,inferred
+26,11,Cargill MX,Texas,San Antonio,TX Hub,Nuevo Laredo,R07,43,inferred
+27,12,Proan,Arizona,Tucson,Tucson Hub,Nogales,R18,69,inferred
+28,12,Proan,California,Los Angeles,LA Hub,Nogales,R19,31,inferred
+29,13,Yoreme,Texas,San Antonio,TX Hub,Nuevo Laredo,R01,73,inferred
+30,13,Yoreme,California,Los Angeles,LA Hub,Otay Mesa,R03,27,inferred
+31,14,Frigorífica Contreras,Texas,San Antonio,TX Hub,Nuevo Laredo,R26,100,inferred
+32,15,Frigorífico Tabasco,Texas,Houston,Houston Hub,Nuevo Laredo,R27,100,inferred
+33,16,Central Cárnicos Bajío,Texas,San Antonio,TX Hub,Nuevo Laredo,R07,100,inferred
+34,17,Ganadería Monarca,Texas,San Antonio,TX Hub,Nuevo Laredo,R28,100,documented
+35,18,Bonaprime,Texas,San Antonio,TX Hub,Nuevo Laredo,R29,100,inferred
+36,19,Genpro,Arizona,Phoenix,Phoenix Hub,Nogales,R14,100,inferred
+37,20,Emp. Ganadería Tamaulipas,Texas,McAllen,McAllen Hub,Reynosa/Pharr,R30,100,inferred

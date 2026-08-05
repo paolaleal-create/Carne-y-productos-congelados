@@ -1,0 +1,18 @@
+project:
+  name: CL Circular Analytics
+  corridor: Mexico-Estados Unidos
+
+score_weights:
+  volume_tons: 0.22
+  value_usd: 0.26
+  distance_km: 0.12
+  sensitivity_temperature: 0.14
+  risk_congestion: 0.14
+  incidences_proxy: 0.12
+
+scenario_defaults:
+  adoption_rate: 0.30
+  adoption_effectiveness: 0.35
+  risk_multiplier: 1.15
+  expansion_growth: 0.20
+
